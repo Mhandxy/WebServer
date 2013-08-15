@@ -1,0 +1,49 @@
+Web服务器开发
+
+#要求
+编写一个简单的Web服务器
+允许本地或远程客户通过HTTP协议访问系统信息（例如显示时间、Linux发布版本、空闲磁盘空间、当前运行的进程等）
+使用模块架构针对Web请求生成动态HTML网页，而不是仅仅显示一张静态HTML网页
+模块不能静态链接到服务器可执行文件中，应允许动态装载模块，且可在服务器运行期间添加、删除和替换
+在子进程中服务Web请求，以确保某个较长的Web请求不会过多占用后续Web请求的时间，同时某个Web请求的问题不会传播到其他Web请求中去
+服务器并不要求超级用户权限
+
+#程序架构
+server.h：可导出的全局变量、全局类型和函数的声明
+common.c：通用函数的定义
+module.c：服务模块的装载与卸载功能的实现
+server.c：服务器功能的实现
+main.c：主函数
+
+#服务模块
+time.c：显示系统时间
+issue.c：显示系统发布信息
+diskfree.c：显示空闲磁盘空间信息
+processes.c：显示服务器中当前运行的进程列表
+
+#目录结构
+.
+├── common.c
+├── include
+│   ├── diskfree.c
+│   ├── issue.c
+│   ├── processes.c
+│   └── time.c
+├── lib
+│   ├── libdiskfree.so
+│   ├── libissue.so
+│   ├── libprocesses.so
+│   └── libtime.so
+├── main.c
+├── Makefile
+├── module.c
+├── README
+├── server
+├── server.c
+└── server.h
+
+#makefile说明
+make 编译服务器和服务模块
+make module 只编译服务模块
+make test 默认参数进行测试
+ 
