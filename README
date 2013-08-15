@@ -8,6 +8,11 @@ Web服务器开发
 在子进程中服务Web请求，以确保某个较长的Web请求不会过多占用后续Web请求的时间，同时某个Web请求的问题不会传播到其他Web请求中去
 服务器并不要求超级用户权限
 
+#使用
+[ip address]:[port]/[module name]
+eg. localhost:8008/time
+    localhost:8008/issue
+
 #程序架构
 server.h：可导出的全局变量、全局类型和函数的声明
 common.c：通用函数的定义
