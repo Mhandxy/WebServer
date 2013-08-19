@@ -14,10 +14,10 @@ const struct option long_options[] = {
     { "verbose", 0, NULL, 'v' },
     { NULL, 0, NULL, 0 }
 };
-//È«¾Ö±äÁ¿
+//å…¨å±€å˜é‡
 int verbose = 0;
 const char* modir = "lib/";
-//´òÓ¡Êä³ö
+//æ‰“å°è¾“å‡º
 void PrintUsage (FILE* stream, int exit_code)
 {
     fprintf (stream, "Usage: %s options [ inputfile ... ]\n", program_name);
@@ -76,7 +76,7 @@ int main(int argc,char* argv[])
     if(strcmp("localhost",address)==0)
         address="127.0.0.1";
     struct in_addr addr;
-    //·şÎñÆ÷µØÖ·¼°¶Ë¿Ú
+    //æœåŠ¡å™¨åœ°å€åŠç«¯å£
     addr.s_addr = inet_addr(address);
     server_run(addr,htons(port));
     return 0;

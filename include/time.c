@@ -25,7 +25,7 @@ void module_generate(int client_socket)
     time(&now);
     timenow = localtime(&now);
     send(client_socket,page_begin,strlen(page_begin),0);
-    //ÏÔÊ¾Ê±¼ä
+    //æ˜¾ç¤ºæ—¶é—´
     send(client_socket,asctime(timenow),strlen(asctime(timenow)),0);
     send(client_socket,page_end,strlen(page_end),0);
 }

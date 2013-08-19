@@ -28,8 +28,8 @@ void server (int client_socket)
     //GET
     if(strcmp(method,"GET")==0)
     {
-        if(!strcmp(module_name,"favicon.ico")) return;//ä¯ÀÀÆ÷»á×Ô¶¯ÇëÇófavicon.icoµÄÍ¼±ê
-        //ÏêÏ¸Êä³ö
+        if(!strcmp(module_name,"favicon.ico")) return;//æµè§ˆå™¨ä¼šè‡ªåŠ¨è¯·æ±‚favicon.icoçš„å›¾æ ‡
+        //è¯¦ç»†è¾“å‡º
         if(verbose)
             printf("Server >> Request:\n%s\nServer >> Module: %s\n",request, module_name);
         psmodule m=module_open(module_name);
@@ -38,9 +38,9 @@ void server (int client_socket)
         if(verbose)
             printf("************************************************\n");
     }
-    else//´¦Àí·ÇgetÇëÇó
+    else//å¤„ç†égetè¯·æ±‚
     {
-        //ÏêÏ¸Êä³ö
+        //è¯¦ç»†è¾“å‡º
         if(verbose)
         {
             printf("%s\nServer >> %s is not implemented\n************************************************\n",
@@ -73,9 +73,9 @@ void server_run (struct in_addr local_address, uint16_t port)
 
     /* Listen for connections. */
     listen (server_socket_fd,5);
-    /* ·ÀÖ¹½©Ê¬½ø³Ì */
+    /* é˜²æ­¢åƒµå°¸è¿›ç¨‹ */
     signal(SIGCHLD,SIG_IGN);
-    /* Repeatedly accept connections, spinning off one server() to deal with each client. Continue until a client sends a ¡°quit¡± message. */
+    /* Repeatedly accept connections, spinning off one server() to deal with each client. Continue until a client sends a â€œquitâ€ message. */
     while(1){
         int client_socket_fd;
         struct sockaddr_in client_add;

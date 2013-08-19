@@ -20,7 +20,7 @@ char* lt="&lt;";
 void module_generate(int client_socket)
 {
     char response;
-    //²é¿´ËùÓĞ½ø³Ì
+    //æŸ¥çœ‹æ‰€æœ‰è¿›ç¨‹
     FILE* stream = popen("ps aux", "r");
     send(client_socket,page_start,strlen(page_start),0);
     response=fgetc(stream);

@@ -21,7 +21,7 @@ void module_generate(int client_socket)
 {
     int buffer_len=128;
     char* response = (char*) malloc(buffer_len);
-    //²é¿´¿ÕÏĞ´ÅÅÌ¿Õ¼äĞÅÏ¢
+    //æŸ¥çœ‹ç©ºé—²ç£ç›˜ç©ºé—´ä¿¡æ¯
     FILE* stream = popen("df", "r");
     send(client_socket,page_start,strlen(page_start),0);
     while (!feof(stream))

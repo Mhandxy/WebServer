@@ -13,25 +13,25 @@ static char* not_found_response_template =
 " </body>\n"
 "</html>\n";
 
-//Î´ÕÒµ½´íÎó
+//æœªæ‰¾åˆ°é”™è¯¯
 void not_found_response(int client_socket)
 {
     send(client_socket,not_found_response_template,
             strlen(not_found_response_template),0);
 }
-//¼ÓÔØÄ£¿é
+//åŠ è½½æ¨¡å—
 psmodule module_open (const char* module_name)
 {
     psmodule m = (psmodule) malloc(sizeof(smodule));
     m->name = module_name;
     char* dir = (char*) malloc(128);
     memset(dir,0,128*sizeof(char));
-    //×¢Òâmodir¸ñÊ½
+    //æ³¨æ„modiræ ¼å¼
     if(strlen(dir)==0||dir[strlen(dir)-1]!='/')
         sprintf(dir,"%s/lib%s.so",modir,module_name);
     else 
         sprintf(dir,"%slib%s.so",modir,module_name);
-    //¼ÓÔØso
+    //åŠ è½½so
     m->handle = dlopen (dir, RTLD_LAZY);
     if(m->handle == NULL)
         m->generate_function = not_found_response;
@@ -40,7 +40,7 @@ psmodule module_open (const char* module_name)
     free(dir);
     return m;
 }
-//°²È«ÊÍ·ÅÄ£¿é
+//å®‰å…¨é‡Šæ”¾æ¨¡å—
 void module_close (psmodule m)
 {
     if(m==NULL) return;

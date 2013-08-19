@@ -23,13 +23,13 @@ void module_generate(int client_socket)
     char* response = (char*) malloc(buffer_len);
 
     send(client_socket,page_start,strlen(page_start),0);
-    //·¢ĞĞ°æ eg. ubuntu 12.10
+    //å‘è¡Œç‰ˆ eg. ubuntu 12.10
     FILE* stream = popen("lsb_release -d", "r");
     memset(response,0,buffer_len*sizeof(char));
     fgets(response, buffer_len, stream);
     send(client_socket,response,strlen(response),0);
     pclose(stream);
-    //ÄÚºË   eg. linux 3.5.0****
+    //å†…æ ¸   eg. linux 3.5.0****
     stream = popen("uname -s -r", "r");
     memset(response,0,buffer_len*sizeof(char));
     fgets(response, buffer_len, stream);
